@@ -24,6 +24,8 @@ All the documentation and exampes on Knex migrations use timestamps for versions
 
 To use dotenv, the dotenv package needs to be loaded and configured right into `knexfile.js` so that the environment variables load.
 
+If you want to use your existing raw sql files, there is an example of doing so in the `migrations/4_runRawSqlFile.js` file. Note that doing so required modifying the Knex configuration to handle `multipleStatements`. According to https://github.com/tgriesser/knex/issues/257 the risk for SQL injection attacks are greatly increased, so a point of improvement for this repository could be to have a separatet `knexfile.js` for migrations that extends the original knex configuration.
+
 # Conclusion
 
 In summary, I find Knex's migration CLI to be better than Flyway for a Node-based application.
